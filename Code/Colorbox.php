@@ -1,9 +1,5 @@
 <?php
 class Colorbox extends DataObjectDecorator {
-	//shouldn't be neccesary:
-	/*function __construct() {
-		parent::__construct();
-	}*/
 	static $allowed_actions = array(
 		'colorboxpage'
 	);
