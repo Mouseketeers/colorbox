@@ -5,13 +5,16 @@ class Colorbox extends DataObjectDecorator {
 	);
 	static $template;
 	public function index() {
-		Requirements::css('colorbox/css/colorbox.css');
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery-packed.js');
 		Requirements::javascript('colorbox/javascript/jquery.colorbox-min.js');
 		Requirements::customScript(
 			';(function($) {
 				$(document).ready(function(){
-					$(\'.colorbox\').colorbox({ current: "'._t('Colorbox.Current', 'Image {current} of {total}').'" });
+					$(\'.colorbox\').colorbox({
+						transition:"fade",
+						height:"80%",
+						current: "'._t('Colorbox.Current', 'Image {current} of {total}').'" }
+					);
 					$(\'.colorboxPage\').colorbox({  
 						href: function() {
 							return $(this).attr("href")+"/colorboxpage?debug_request=1"
@@ -21,6 +24,7 @@ class Colorbox extends DataObjectDecorator {
 				});
 			})(jQuery);'
 		);
+		Requirements::css('colorbox/css/colorbox.css');
 		return array();
 	}
 	public function colorboxpage() {
