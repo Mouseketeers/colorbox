@@ -11,8 +11,7 @@ class Colorbox extends DataObjectDecorator {
 			';(function($) {
 				$(document).ready(function(){
 					$(\'.colorbox\').colorbox({
-						transition:"fade",
-						height:"80%",
+						height:"90%",
 						current: "'._t('Colorbox.Current', 'Image {current} of {total}').'" }
 					);
 					$(\'.colorboxPage\').colorbox({  
