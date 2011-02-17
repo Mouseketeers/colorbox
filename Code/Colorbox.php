@@ -11,7 +11,8 @@ class Colorbox extends DataObjectDecorator {
 			';(function($) {
 				$(document).ready(function(){
 					$(\'.colorbox\').colorbox({
-						height:"90%",
+						maxWidth:"90%",
+						maxHeight:"90%",
 						current: "'._t('Colorbox.Current', 'Image {current} of {total}').'" }
 					);
 					$(\'.colorboxPage\').colorbox({  
