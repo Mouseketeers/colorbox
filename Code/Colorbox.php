@@ -3,27 +3,20 @@ class Colorbox extends DataObjectDecorator {
 	static $allowed_actions = array(
 		'colorboxpage'
 	);
+	static $selectors = array(
+		'colorbox' => 'maxWidth:"90%",maxHeight:"90%",current: "Image {current} of {total}"',
+		'colorboxIframe' => 'width:"600", innerHeight:"500", iframe:true',
+		'colorboxPage' => 'href: function() { return $(this).attr("href")+"/colorboxpage"},width:"600px",height:"500px"'
+	);
 	static $template;
 	public function index() {
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery-packed.js');
 		Requirements::javascript('colorbox/javascript/jquery.colorbox-min.js');
-		Requirements::customScript(
-			';(function($) {
-				$(document).ready(function(){
-					$(\'.colorbox\').colorbox({
-						maxWidth:"90%",
-						maxHeight:"90%",
-						current: "'._t('Colorbox.Current', 'Image {current} of {total}').'" }
-					);
-					$(\'.colorboxPage\').colorbox({  
-						href: function() {
-							return $(this).attr("href")+"/colorboxpage?debug_request=1"
-						}
-					});
-					$(\'.colorboxIframe\').colorbox({ innerWidth:"644", innerHeight:"540", iframe:true });
-				});
-			})(jQuery);'
-		);
+		$selectors_js = '';
+		foreach(self::$selectors as $key => $value) {
+			$selectors_js .= '$(\'.'.$key.'\').colorbox({'.$value.'});';
+		}
+		Requirements::customScript(';(function($) {$(document).ready(function(){'.$selectors_js.'});})(jQuery);');
 		Requirements::css('colorbox/css/colorbox.css');
 		return array();
 	}
@@ -31,6 +24,12 @@ class Colorbox extends DataObjectDecorator {
 		/*$ssv=new SSViewer("Page");
       $ssv->setTemplateFile("Layout", "MyTemplateName");
       return $this->renderWith($ssv); */
-		return $this->owner->renderWith(array($this->owner->ClassName, 'Page', 'ContentController'));
+		return $this->owner->renderWith('PopOverPage');
+	}
+	public function add_selector($selector) {
+		self::$selectors[] = $selector;
+	}
+	public function set_selectors($selectors) {
+		self::$selectors = $selectors;
 	}
 }
