@@ -35,7 +35,7 @@
 	    #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
 
         /*#cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}*/
-		#cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+		#cboxCurrent{position:absolute; height:25px;bottom:0; left:68px; color:#949494}
        /* #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}*/
 	          #cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
 

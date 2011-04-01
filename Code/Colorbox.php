@@ -4,7 +4,7 @@ class Colorbox extends DataObjectDecorator {
 		'colorboxpage'
 	);
 	static $selectors = array(
-		'colorbox' => 'maxWidth:"90%",maxHeight:"90%",current: "Image {current} of {total}"',
+		'colorbox' => 'maxWidth:"90%",maxHeight:"90%",scalePhotos:true,current: "Image {current} of {total}"',
 		'colorboxIframe' => 'width:"600", innerHeight:"500", iframe:true',
 		'colorboxPage' => 'href: function() { return $(this).attr("href")+"/colorboxpage"},width:"600px",height:"500px"'
 	);
@@ -26,8 +26,8 @@ class Colorbox extends DataObjectDecorator {
       return $this->renderWith($ssv); */
 		return $this->owner->renderWith('PopOverPage');
 	}
-	public function add_selector($selector) {
-		self::$selectors[] = $selector;
+	public function add_selector($name,$selector) {
+		self::$selectors[$name] = $selector;
 	}
 	public function set_selectors($selectors) {
 		self::$selectors = $selectors;
