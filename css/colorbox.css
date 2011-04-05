@@ -32,22 +32,22 @@
     #cboxContent{background:#fff;}
         #cboxLoadedContent{margin-bottom:32px;}
         /*#cboxTitle{position:absolute; bottom:0px; left:0; text-align:center; width:100%; color:#999;}*/
-	    #cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
+	    #cboxTitle{position:absolute; bottom:0; left:0; text-align:center; width:100%; color:#949494;}
 
         /*#cboxCurrent{position:absolute; bottom:0px; left:100px; color:#999;}*/
-		#cboxCurrent{position:absolute; height:25px;bottom:0; left:68px; color:#949494}
+		#cboxCurrent{position:absolute;bottom:0; left:65px; color:#949494}
        /* #cboxSlideshow{position:absolute; bottom:0px; right:42px; color:#444;}*/
 	          #cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
 
         /*#cboxPrevious{position:absolute; bottom:0px; left:0; color:#444;}*/
-		#cboxPrevious{position:absolute; bottom:0; left:0px; background:url(../images/controls.png) no-repeat -75px 0px; width:25px; height:25px; text-indent:-9999px;}
+		#cboxPrevious{position:absolute; bottom:1px; left:0px; background:url(../images/controls.png) no-repeat -75px 0px; width:25px; height:25px; text-indent:-9999px;}
 
         /*#cboxNext{position:absolute; bottom:0px; left:63px; color:#444;}*/
-		#cboxNext{position:absolute; bottom:0; left:27px; background:url(../images/controls.png) no-repeat -50px 0px; width:25px; height:25px; text-indent:-9999px;}
+		#cboxNext{position:absolute; bottom:1px; left:27px; background:url(../images/controls.png) no-repeat -50px 0px; width:25px; height:25px; text-indent:-9999px;}
 
         #cboxLoadingOverlay{background:#fff url(../images/loading.gif) no-repeat center center;}
         /*#cboxClose{position:absolute; bottom:0; right:0; display:block; color:#444;}*/
-		#cboxClose{position:absolute; bottom:0; right:0; background:url(../images/controls.png) no-repeat -25px 0px; width:25px; height:25px; text-indent:-9999px;}
+		#cboxClose{position:absolute; bottom:1px; right:0; background:url(../images/controls.png) no-repeat -25px 0px; width:25px; height:25px; text-indent:-9999px;}
         #cboxClose.hover{background-position:-25px -25px;}
 
 /*
