@@ -1,10 +1,10 @@
 <?php
-class Colorbox extends DataObjectDecorator {
+class Colorbox extends Extension {
 	static $allowed_actions = array(
 		'colorboxpage'
 	);
 	static $selectors = array(
-		'colorbox' => 'maxWidth:"90%",maxHeight:"90%",scalePhotos:true,current: "Image {current} of {total}"',
+		'colorbox' => 'maxWidth:"90%",maxHeight:"90%",scrolling:false,scalePhotos:true,current: "Image {current} of {total}"',
 		'colorboxIframe' => 'width:"600", innerHeight:"500", iframe:true',
 		'colorboxPage' => 'href: function() {
 				var href = $(this).attr("href");
@@ -17,7 +17,6 @@ class Colorbox extends DataObjectDecorator {
 				return href+"/colorboxpage/"+query
 			},width:"600px",height:"500px"'
 	);
-	static $template;
 	public function init() {
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery-packed.js');
 		Requirements::javascript('colorbox/javascript/jquery.colorbox-min.js');
@@ -26,13 +25,10 @@ class Colorbox extends DataObjectDecorator {
 			$selectors_js .= '$(\'.'.$key.'\').colorbox({'.$value.'});';
 		}
 		Requirements::customScript(';(function($) {$(document).ready(function(){'.$selectors_js.'});})(jQuery);');
-		Requirements::css('colorbox/css/colorbox.css');
+		Requirements::themedCSS('colorbox');
 		return array();
 	}
 	public function colorboxpage() {
-		/*$ssv=new SSViewer("Page");
-      $ssv->setTemplateFile("Layout", "MyTemplateName");
-      return $this->renderWith($ssv); */
 		return $this->owner->renderWith('PopOverPage');
 	}
 	public function add_selector($name,$selector) {
