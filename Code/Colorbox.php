@@ -17,7 +17,7 @@ class Colorbox extends Extension {
 				return href+"/colorboxpage/"+query
 			},width:"600px",height:"500px"'
 	);
-	public function init() {
+	public function onAfterInit() {
 		Requirements::javascript(THIRDPARTY_DIR . '/jquery/jquery-packed.js');
 		Requirements::javascript('colorbox/javascript/jquery.colorbox-min.js');
 		$selectors_js = '';
